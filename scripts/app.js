@@ -13,6 +13,10 @@ $.getJSON(articlesLink, (res)=>{
         const card = document.createElement('div');
         card.classList.add('card');
 
+        const image = document.createElement('img')
+        image.src = 'https://img.freepik.com/free-vector/breaking-news-concept_23-2148514216.jpg?w=2000'
+        image.classList.add('card-img-top')
+
         const cardBody = document.createElement('div')
         cardBody.classList.add('card-body')
 
@@ -28,8 +32,8 @@ $.getJSON(articlesLink, (res)=>{
         cardBody.append(title)
         cardBody.append(content)
 
+        card.append(image)
         card.append(cardBody)
-
         container.append(card);
 
 
