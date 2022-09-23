@@ -4,14 +4,14 @@
 
     $query = $mysqli->prepare("SELECT * FROM news");
     $query ->execute();
-    $array = $query->get_result();
-
+    $response = $query->get_result();
+    $response = $response->fetch_assoc();
     // echo $array;
-    $response = [];
+    // $response = [];
 
-    while($a = $array->fetch_assoc()){
-        $response[] = $a;
-    }
+    // while($a = $array->fetch_assoc()){
+    //     $response[] = $a;
+    // }
 
     $json = json_encode($response);
     echo $json;
