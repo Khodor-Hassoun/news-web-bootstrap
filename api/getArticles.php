@@ -2,10 +2,18 @@
     header("Access-Control-Allow-Origin: *");
     include('connection.php');
 
-    $query = $mysqli->prepare('SELECT * FROM newsdb');
+    $query = $mysqli->prepare("SELECT * FROM news");
     $query ->execute();
-    $query ->get_result();
+    $array = $query->get_result();
 
-    re
+    // echo $array;
+    $response = [];
+
+    while($a = $array->fetch_assoc()){
+        $response[] = $a;
+    }
+
+    $json = json_encode($response);
+    echo $json;
 
 ?>
